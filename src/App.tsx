@@ -8,7 +8,7 @@ function App() {
       apiKey={import.meta.env.VITE_GOOGLE_MAP_API_KEY}
       libraries={["places"]}
     >
-      <BrowserRouter>
+      <BrowserRouter basename="travel-web-app">
         <Routes>
           {/* 所有邏輯都在 MainLayout 處理 */}
           <Route path="/" element={<MainLayout />} />
