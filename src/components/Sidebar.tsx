@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { useMapsLibrary } from "@vis.gl/react-google-maps";
 import { Search, Trash2, Map as MapIcon, ChevronLeft } from "lucide-react"; // 引入 ChevronLeft
 import type { Spot } from "../types/Spot";
