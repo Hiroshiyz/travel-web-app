@@ -24,7 +24,6 @@ const Sidebar: React.FC<SidebarProps> = ({
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const placesLibrary = useMapsLibrary("places");
-  const [autocomplete, setAutocomplete] = useState<any>(null);
 
   useEffect(() => {
     if (!placesLibrary || !inputRef.current) return;
@@ -42,7 +41,6 @@ const Sidebar: React.FC<SidebarProps> = ({
     };
 
     const ac = new placesLibrary.Autocomplete(inputRef.current, options);
-    setAutocomplete(ac);
 
     ac.addListener("place_changed", () => {
       const place = ac.getPlace();
