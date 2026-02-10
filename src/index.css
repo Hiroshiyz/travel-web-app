@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+/* 1. 在 @theme 區塊中定義變數，Tailwind v4 會自動生成對應的 utility classes */
+@theme {
+  /* 標準 Tiffany Blue */
+  --color-tiffany: #81d8d0;
+  /* 稍微深一點的 Tiffany Blue，用於按鈕 Hover 或文字 */
+  --color-tiffany-dark: #66c2ba;
+  /* 淺色版，適合當背景 */
+  --color-tiffany-light: #e0f7f5;
+
+  /* 定義品牌色後，你現在可以直接使用 bg-brand, text-brand, border-brand */
+  --color-brand: var(--color-tiffany);
+
+  /* 你原本定義在 @layer base 的文字顏色也可以整合進來（選用） */
+  --color-gray-900: #111827;
+  --color-gray-700: #374151;
+  --color-gray-50: #f9fafb;
+}
+
+/* 2. 使用標準 CSS 選擇器來設定 Base 樣式，不再強烈依賴 @layer base */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-gray-900;
+  }
+  body {
+    @apply bg-gray-50 text-gray-700;
+  }
+}
+
+/* 3. 由於你在 @theme 中定義了變數，以下這些自定義 class 其實可以「刪除」 */
+/* Tailwind 會自動幫你產生 .text-brand, .bg-brand-light, .border-brand 等 */
+@layer components {
+  /* 如果你需要特定組合邏輯才寫在這裡，否則直接在 HTML 用 class 即可 */
+  .btn-brand {
+    @apply bg-brand text-white hover:bg-tiffany-dark transition-colors px-4 py-2 rounded-lg;
+  }
+}
